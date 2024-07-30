@@ -11,5 +11,3 @@ while L <= len(my_list):
         print(number)
     else:
         print(number)
-        break
-    L += 1
