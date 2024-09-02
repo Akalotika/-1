@@ -10,43 +10,62 @@ class House:
         else:
             print("Такого этажа не существует")
 
+    def __str__(self):
+        return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
+
+    def __lt__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors < other.number_of_floors
+
+    def __le__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors <= other.number_of_floors
+        else:
+            print("Wrong type of entering data")
+
+    def __gt__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors > other.number_of_floors
+        else:
+            print("Wrong type of entering data")
+
+    def __ge__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors >= other.number_of_floors
+        else:
+            print("Wrong type of entering data")
+
+    def __ne__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors != other.number_of_floors
+        else:
+            print("Wrong type of entering data")
+
+    def __eq__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors == other.number_of_floors
+        else:
+            print("Wrong type of entering data")
+
+    def __add__(self, value):
+        if isinstance(value, int):
+            self.number_of_floors += value
+            return self
+
+    def __radd__(self, value):
+        self.__add__(value)
+        return self
+
+    def __iadd__(self, value):
+        self.__add__(value)
+        return self
+
     def __len__(self):
         return self.number_of_floors
 
-    def __str__(self):
-        return f'Название: "{self.name}", кол-во этажей: {self.number_of_floors}.'
 
-    def __eq__(self, other):
-        return self.number_of_floors == other.number_of_floors
-
-    def __lt__(self, other):
-        return self.number_of_floors < other.number_of_floors
-
-    def __le__(self, other):
-        return self.number_of_floors <= other.number_of_floors
-
-    def __gt__(self, other):
-        return self.number_of_floors > other.number_of_floors
-
-    def __ge__(self, other):
-        return self.number_of_floors >= other.number_of_floors
-
-    def __ne__(self, other):
-        return self.number_of_floors != other.number_of_floors
-
-    def __add__(self, value):
-        self.number_of_floors += value
-        return self
-
-    def __iadd__(self, other):
-        return self + other
-
-    def __radd__(self, other):
-        return self + other
-
-
-h1 = House('ЖК Эльбрус', 10)
-h2 = House('ЖК Акация', 20)
+h1 = House("ЖК Эльбрус", 10)
+h2 = House("ЖК Акация", 20)
 
 print(h1)
 print(h2)
