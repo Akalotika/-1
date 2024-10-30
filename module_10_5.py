@@ -19,7 +19,7 @@ start = datetime.datetime.now()
 for file in filenames:
     read_info(file)
 end = datetime.datetime.now()
-print(f'{end - start} (линейный)')
+print(f"{end - start} (линейный)")
 
 # мультипроцессорный вызов
 if __name__ == '__main__':
@@ -27,4 +27,4 @@ if __name__ == '__main__':
     with multiprocessing.Pool(processes=len(filenames)) as pool:
         pool.map(read_info, filenames)
     end = datetime.datetime.now()
-    print(f'{end - start} (многопроцессорный)')
+    print(f"{end - start} (многопроцессорный)")
